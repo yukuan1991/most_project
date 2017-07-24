@@ -33,7 +33,15 @@ SOURCES += main.cc\
     interface_control/ribbon_most.cc \
     most_widget.cc \
     data_widget.cc \
-    most_analysis.cc
+    most_analysis.cc \
+    model/json_model.cpp \
+    pts/code_edit.cpp \
+    pts/pts_delegate.cpp \
+    pts/pts_model.cpp \
+    Qt-Utils/des.cpp \
+    Qt-Utils/encryption.cpp \
+    Qt-Utils/tinyxml2.cpp \
+    view/table_view.cpp
 
 HEADERS  += most_main.h \
     interface_control/about_us_dlg.h \
@@ -42,7 +50,20 @@ HEADERS  += most_main.h \
     interface_control/ribbon_most.h \
     most_widget.h \
     data_widget.h \
-    most_analysis.h
+    most_analysis.h \
+    model/json_model.h \
+    pts/code_edit.h \
+    pts/pts_delegate.h \
+    pts/pts_model.h \
+    Qt-Utils/des.h \
+    Qt-Utils/encryption.h \
+    Qt-Utils/json.hpp \
+    Qt-Utils/krys_application.hpp \
+    Qt-Utils/qt.hpp \
+    Qt-Utils/stl_extension.hpp \
+    Qt-Utils/tinyxml2.h \
+    view/table_view.h \
+    arithmetic_resource.hpp
 
 FORMS    += most_main.ui \
     most_widget.ui \
@@ -53,3 +74,4 @@ LIBS += -lboost_locale
 LIBS += -liconv
 LIBS += -lboost_filesystem
 LIBS += -lboost_system
+LIBS += -lboost_regex
