@@ -29,14 +29,25 @@ SOURCES += main.cc\
         most_main.cc \
     interface_control/about_us_dlg.cc \
     interface_control/push_button.cpp \
-    interface_control/ribbon.cc
+    interface_control/ribbon.cc \
+    interface_control/ribbon_most.cc \
+    most_widget.cc \
+    data_widget.cc \
+    most_analysis.cc
 
 HEADERS  += most_main.h \
     interface_control/about_us_dlg.h \
     interface_control/push_button.h \
-    interface_control/ribbon.h
+    interface_control/ribbon.h \
+    interface_control/ribbon_most.h \
+    most_widget.h \
+    data_widget.h \
+    most_analysis.h
 
-FORMS    += most_main.ui
+FORMS    += most_main.ui \
+    most_widget.ui \
+    data_widget.ui \
+    most_analysis.ui
 
 LIBS += -lboost_locale
 LIBS += -liconv
