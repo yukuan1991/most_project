@@ -1075,7 +1075,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_20">
+        <widget class="QComboBox" name="combo_tus_u_categories">
          <item>
           <property name="text">
            <string>F/L</string>
@@ -1356,7 +1356,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -1461,7 +1461,7 @@
       </attribute>
       <layout class="QHBoxLayout" name="horizontalLayout_9">
        <item>
-        <widget class="QTextBrowser" name="textBrowser"/>
+        <widget class="QTextBrowser" name="text_area_most_description"/>
        </item>
       </layout>
      </widget>
