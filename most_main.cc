@@ -20,6 +20,8 @@ most_main::most_main(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->mdi->setViewMode (QMdiArea::TabbedView);
+    setWindowState(Qt::WindowMaximized);
+    setMinimumSize(QSize(1000, 800));
     init_conn();
     set_button_enabled();
 }
@@ -34,6 +36,7 @@ void most_main::init_conn()
     connect(ui->widget_ribbon, &ribbon_most::file_menu_triggered,
             [this] (const QString & s) { file_operations(s); });
 
+    connect(ui->widget_ribbon, &ribbon_most::add_row, this, &most_main::add_row);
     connect(ui->widget_ribbon, &ribbon_most::measure_date, this, &most_main::on_measure_date);
     connect(ui->widget_ribbon, &ribbon_most::measure_man, this, &most_main::on_measure_man);
     connect(ui->widget_ribbon, &ribbon_most::task_man, this, &most_main::on_task_man);
@@ -126,8 +129,8 @@ void most_main::file_save()
         return;
     }
 
-    if (const auto title_path = active->windowTitle ();
-            title_path == "未命名")
+    const auto title_path = active->windowTitle ();
+    if (title_path == "未命名")
     {
         const auto path = QFileDialog::getSaveFileName(this, "文件保存", ".", tr ("Most Analysis File (*.mostaf)"));
         const auto data = w->dump ();
@@ -161,11 +164,26 @@ void most_main::file_save_as()
     if (w != nullptr)
     {
         const auto path = QFileDialog::getSaveFileName(this, "文件保存", ".", tr ("Most Analysis File (*.mostaf)"));
+        if(path.isEmpty())
+        {
+            return;
+        }
+
         const auto data = w->dump ();
 
         active->setWindowTitle(path);
         file::write_buffer (::utf_to_sys (path.toStdString ()).data (), data.dump (4));
     }
+}
+
+void most_main::add_row()
+{
+    auto w = active_window();
+    if(w == nullptr)
+    {
+        return;
+    }
+    w->add_row();
 }
 
 void most_main::on_measure_date()
@@ -256,11 +274,10 @@ not_null<most_analysis *> most_main::create_window(const QString &title)
 
     w->setWindowState (Qt::WindowMaximized);
 
-    connect(ui->widget_ribbon, &ribbon_most::add_row, ptr_most_win, &most_analysis::add_row);
-        connect(ui->widget_ribbon, &ribbon_most::copy, ptr_most_win, &most_analysis::copy);
-        connect(ui->widget_ribbon, &ribbon_most::cut, ptr_most_win, &most_analysis::cut);
-        connect(ui->widget_ribbon, &ribbon_most::paste, ptr_most_win, &most_analysis::paste);
-        connect(ui->widget_ribbon, &ribbon_most::del, ptr_most_win, &most_analysis::del);
+    connect(ui->widget_ribbon, &ribbon_most::copy, ptr_most_win, &most_analysis::copy);
+    connect(ui->widget_ribbon, &ribbon_most::cut, ptr_most_win, &most_analysis::cut);
+    connect(ui->widget_ribbon, &ribbon_most::paste, ptr_most_win, &most_analysis::paste);
+    connect(ui->widget_ribbon, &ribbon_most::del, ptr_most_win, &most_analysis::del);
 
     return most_win.release ();
 }

@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_10">
+  <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="1,0,1">
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
@@ -51,6 +51,12 @@
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QLabel" name="label">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="text">
           <string>普通移动序列:</string>
          </property>
@@ -89,6 +95,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_gms_a_1">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -138,6 +156,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_gms_b_1">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>0</string>
@@ -179,6 +209,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_gms_g_1">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>0</string>
@@ -220,6 +262,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_gms_a_2">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -269,6 +323,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_gms_b_2">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>0</string>
@@ -310,6 +376,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_gms_p_1">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>0</string>
@@ -351,6 +429,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_gms_a_3">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -417,6 +507,12 @@
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <item>
         <widget class="QLabel" name="label_9">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="text">
           <string>受控移动序列:</string>
          </property>
@@ -455,6 +551,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_cms_a_1">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -504,6 +612,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_cms_b_1">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>0</string>
@@ -545,6 +665,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_cms_g_1">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>0</string>
@@ -586,6 +718,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_cms_m_1">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>0</string>
@@ -627,6 +771,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_cms_x_1">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -676,6 +832,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_cms_i_1">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>0</string>
@@ -717,6 +885,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_cms_a_2">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -783,6 +963,12 @@
       <layout class="QHBoxLayout" name="horizontalLayout_5">
        <item>
         <widget class="QLabel" name="label_10">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="text">
           <string>工具使用序列:</string>
          </property>
@@ -821,6 +1007,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_tus_a_1">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -870,6 +1068,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_tus_b_1">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>0</string>
@@ -911,6 +1121,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_tus_g_1">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>0</string>
@@ -952,6 +1174,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_tus_a_2">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -1001,6 +1235,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_tus_b_2">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>0</string>
@@ -1042,6 +1288,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_tus_p_1">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>0</string>
@@ -1076,6 +1334,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_tus_u_categories">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>F/L</string>
@@ -1110,6 +1380,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_tus_u_1">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>0</string>
@@ -1171,6 +1453,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_tus_a_3">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -1220,6 +1514,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_tus_b_3">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>0</string>
@@ -1261,6 +1567,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_tus_p_2">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>0</string>
@@ -1302,6 +1620,18 @@
        </item>
        <item>
         <widget class="QComboBox" name="combo_tus_a_4">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -1356,7 +1686,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -1369,6 +1699,12 @@
           <layout class="QGridLayout" name="gridLayout">
            <item row="0" column="0">
             <widget class="QLabel" name="label_28">
+             <property name="minimumSize">
+              <size>
+               <width>65</width>
+               <height>50</height>
+              </size>
+             </property>
              <property name="text">
               <string>测量日期</string>
              </property>
@@ -1376,6 +1712,12 @@
            </item>
            <item row="0" column="1">
             <widget class="QLabel" name="measure_date">
+             <property name="minimumSize">
+              <size>
+               <width>65</width>
+               <height>50</height>
+              </size>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -1383,6 +1725,12 @@
            </item>
            <item row="1" column="0">
             <widget class="QLabel" name="label_29">
+             <property name="minimumSize">
+              <size>
+               <width>65</width>
+               <height>50</height>
+              </size>
+             </property>
              <property name="text">
               <string>测量人</string>
              </property>
@@ -1390,6 +1738,12 @@
            </item>
            <item row="1" column="1">
             <widget class="QLabel" name="measure_man">
+             <property name="minimumSize">
+              <size>
+               <width>65</width>
+               <height>50</height>
+              </size>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -1397,6 +1751,12 @@
            </item>
            <item row="2" column="0">
             <widget class="QLabel" name="label_30">
+             <property name="minimumSize">
+              <size>
+               <width>65</width>
+               <height>50</height>
+              </size>
+             </property>
              <property name="text">
               <string>作业员</string>
              </property>
@@ -1404,6 +1764,12 @@
            </item>
            <item row="2" column="1">
             <widget class="QLabel" name="task_man">
+             <property name="minimumSize">
+              <size>
+               <width>65</width>
+               <height>50</height>
+              </size>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -1411,6 +1777,12 @@
            </item>
            <item row="3" column="0">
             <widget class="QLabel" name="label_31">
+             <property name="minimumSize">
+              <size>
+               <width>65</width>
+               <height>50</height>
+              </size>
+             </property>
              <property name="text">
               <string>标准总工时</string>
              </property>
@@ -1418,6 +1790,12 @@
            </item>
            <item row="3" column="1">
             <widget class="QLabel" name="label_total">
+             <property name="minimumSize">
+              <size>
+               <width>65</width>
+               <height>50</height>
+              </size>
+             </property>
              <property name="text">
               <string/>
              </property>
