@@ -41,7 +41,8 @@ SOURCES += main.cc\
     Qt-Utils/des.cpp \
     Qt-Utils/encryption.cpp \
     Qt-Utils/tinyxml2.cpp \
-    view/table_view.cpp
+    view/table_view.cpp \
+    most_selection_dlg.cpp
 
 HEADERS  += most_main.h \
     interface_control/about_us_dlg.h \
@@ -63,12 +64,14 @@ HEADERS  += most_main.h \
     Qt-Utils/stl_extension.hpp \
     Qt-Utils/tinyxml2.h \
     view/table_view.h \
-    arithmetic_resource.hpp
+    arithmetic_resource.hpp \
+    most_selection_dlg.h
 
 FORMS    += most_main.ui \
     most_widget.ui \
     data_widget.ui \
-    most_analysis.ui
+    most_analysis.ui \
+    most_selection_dlg.ui
 
 LIBS += -lboost_locale
 LIBS += -liconv

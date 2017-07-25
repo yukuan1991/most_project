@@ -3,6 +3,7 @@
 #include <boost/regex.hpp>
 #include "Qt-Utils/tinyxml2.h"
 #include "arithmetic_resource.hpp"
+#include "most_selection_dlg.h"
 
 std::map<std::string, int> most_widget::kv_tmu_;
 
@@ -129,7 +130,23 @@ void most_widget::on_most_highlighted(const QString &highlight)
     ui->text_area_most_description->setText (qstr_rich_text);
 }
 
-void most_widget::on_most_dot_dot_dot_selected(const QString &)
+void most_widget::on_most_dot_dot_dot_selected(const QString &text)
 {
+    if (text != "……")
+    {
+        return;
+    }
 
+    auto src = sender (); assert (src);
+    auto combo = dynamic_cast<QComboBox*>(src); assert (combo);
+
+    most_selection_dlg dlg;
+    if (QDialog::Accepted != dlg.exec ())
+    {
+        combo->setCurrentIndex (0);
+        return;
+    }
+
+    auto text_clicked = dlg.get_checked_item ();
+    combo->setEditText (text_clicked);
 }

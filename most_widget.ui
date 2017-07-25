@@ -19,7 +19,7 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="button_most_backspace">
          <property name="text">
           <string>回退</string>
          </property>
@@ -39,7 +39,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="button_most_confirm_return">
          <property name="text">
           <string>确认,进入下一行</string>
          </property>
@@ -57,7 +57,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="button_gms_reset">
          <property name="text">
           <string>重置</string>
          </property>
@@ -88,7 +88,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox">
+        <widget class="QComboBox" name="combo_gms_a_1">
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -124,7 +124,7 @@
          </item>
          <item>
           <property name="text">
-           <string>......</string>
+           <string>……</string>
           </property>
          </item>
         </widget>
@@ -137,7 +137,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_2">
+        <widget class="QComboBox" name="combo_gms_b_1">
          <item>
           <property name="text">
            <string>0</string>
@@ -178,7 +178,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_3">
+        <widget class="QComboBox" name="combo_gms_g_1">
          <item>
           <property name="text">
            <string>0</string>
@@ -219,7 +219,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_4">
+        <widget class="QComboBox" name="combo_gms_a_2">
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -255,7 +255,7 @@
          </item>
          <item>
           <property name="text">
-           <string>......</string>
+           <string>……</string>
           </property>
          </item>
         </widget>
@@ -268,7 +268,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_5">
+        <widget class="QComboBox" name="combo_gms_b_2">
          <item>
           <property name="text">
            <string>0</string>
@@ -309,7 +309,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_6">
+        <widget class="QComboBox" name="combo_gms_p_1">
          <item>
           <property name="text">
            <string>0</string>
@@ -350,7 +350,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_7">
+        <widget class="QComboBox" name="combo_gms_a_3">
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -386,7 +386,7 @@
          </item>
          <item>
           <property name="text">
-           <string>......</string>
+           <string>……</string>
           </property>
          </item>
         </widget>
@@ -423,7 +423,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_5">
+        <widget class="QPushButton" name="button_cms_reset">
          <property name="text">
           <string>重置</string>
          </property>
@@ -454,7 +454,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_8">
+        <widget class="QComboBox" name="combo_cms_a_1">
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -490,7 +490,7 @@
          </item>
          <item>
           <property name="text">
-           <string>......</string>
+           <string>……</string>
           </property>
          </item>
         </widget>
@@ -503,7 +503,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_9">
+        <widget class="QComboBox" name="combo_cms_b_1">
          <item>
           <property name="text">
            <string>0</string>
@@ -544,7 +544,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_10">
+        <widget class="QComboBox" name="combo_cms_g_1">
          <item>
           <property name="text">
            <string>0</string>
@@ -585,7 +585,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_11">
+        <widget class="QComboBox" name="combo_cms_m_1">
          <item>
           <property name="text">
            <string>0</string>
@@ -626,7 +626,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_12">
+        <widget class="QComboBox" name="combo_cms_x_1">
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -662,7 +662,7 @@
          </item>
          <item>
           <property name="text">
-           <string>......</string>
+           <string>……</string>
           </property>
          </item>
         </widget>
@@ -675,7 +675,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_13">
+        <widget class="QComboBox" name="combo_cms_i_1">
          <item>
           <property name="text">
            <string>0</string>
@@ -716,7 +716,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_14">
+        <widget class="QComboBox" name="combo_cms_a_2">
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -752,7 +752,7 @@
          </item>
          <item>
           <property name="text">
-           <string>......</string>
+           <string>……</string>
           </property>
          </item>
         </widget>
@@ -789,7 +789,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_7">
+        <widget class="QPushButton" name="button_tus_reset">
          <property name="text">
           <string>重置</string>
          </property>
@@ -820,7 +820,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_15">
+        <widget class="QComboBox" name="combo_tus_a_1">
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -856,7 +856,7 @@
          </item>
          <item>
           <property name="text">
-           <string>......</string>
+           <string>……</string>
           </property>
          </item>
         </widget>
@@ -869,7 +869,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_16">
+        <widget class="QComboBox" name="combo_tus_b_1">
          <item>
           <property name="text">
            <string>0</string>
@@ -910,7 +910,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_26">
+        <widget class="QComboBox" name="combo_tus_g_1">
          <item>
           <property name="text">
            <string>0</string>
@@ -951,7 +951,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_17">
+        <widget class="QComboBox" name="combo_tus_a_2">
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -987,7 +987,7 @@
          </item>
          <item>
           <property name="text">
-           <string>......</string>
+           <string>……</string>
           </property>
          </item>
         </widget>
@@ -1000,7 +1000,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_18">
+        <widget class="QComboBox" name="combo_tus_b_2">
          <item>
           <property name="text">
            <string>0</string>
@@ -1041,7 +1041,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_19">
+        <widget class="QComboBox" name="combo_tus_p_1">
          <item>
           <property name="text">
            <string>0</string>
@@ -1109,7 +1109,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_21">
+        <widget class="QComboBox" name="combo_tus_u_1">
          <item>
           <property name="text">
            <string>0</string>
@@ -1170,7 +1170,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_22">
+        <widget class="QComboBox" name="combo_tus_a_3">
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -1206,7 +1206,7 @@
          </item>
          <item>
           <property name="text">
-           <string>......</string>
+           <string>……</string>
           </property>
          </item>
         </widget>
@@ -1219,7 +1219,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_23">
+        <widget class="QComboBox" name="combo_tus_b_3">
          <item>
           <property name="text">
            <string>0</string>
@@ -1260,7 +1260,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_24">
+        <widget class="QComboBox" name="combo_tus_p_2">
          <item>
           <property name="text">
            <string>0</string>
@@ -1301,7 +1301,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_25">
+        <widget class="QComboBox" name="combo_tus_a_4">
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -1337,7 +1337,7 @@
          </item>
          <item>
           <property name="text">
-           <string>......</string>
+           <string>……</string>
           </property>
          </item>
         </widget>
