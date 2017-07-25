@@ -29,7 +29,7 @@ private:
     void on_button_most_backspace_clicked();
     void on_button_most_confirm_return_clicked();
 private:
-    void init_most ();
+    void init ();
     void on_most_highlighted (const QString& highlight);
     void on_most_dot_dot_dot_selected (const QString&);
 

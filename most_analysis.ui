@@ -15,10 +15,10 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="data_widget" name="widget" native="true"/>
+    <widget class="data_widget" name="widget_data" native="true"/>
    </item>
    <item>
-    <widget class="most_widget" name="widget_2" native="true"/>
+    <widget class="most_widget" name="widget_most" native="true"/>
    </item>
   </layout>
  </widget>

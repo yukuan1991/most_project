@@ -4,6 +4,7 @@
 #include "Qt-Utils/tinyxml2.h"
 #include "arithmetic_resource.hpp"
 #include "most_selection_dlg.h"
+#include <QMessageBox>
 
 std::map<std::string, int> most_widget::kv_tmu_;
 
@@ -12,7 +13,7 @@ most_widget::most_widget(QWidget *parent) :
     ui(new Ui::most_widget)
 {
     ui->setupUi(this);
-    init_most();
+    init();
     std::tie (kv_tmu_, most_data_) = read_tmu_data ();
 
 }
@@ -22,7 +23,106 @@ most_widget::~most_widget()
     delete ui;
 }
 
-void most_widget::init_most()
+void most_widget::on_button_gms_reset_clicked()
+{
+    for(auto iter : gms_)
+    {
+        iter->setCurrentIndex (0);
+    }
+}
+
+void most_widget::on_button_cms_reset_clicked()
+{
+    for(auto iter : cms_)
+    {
+        iter->setCurrentIndex (0);
+    }
+}
+
+void most_widget::on_button_tus_reset_clicked()
+{
+    for(auto iter : tus_)
+    {
+        iter->setCurrentIndex (0);
+    }
+
+    ui->combo_tus_u_categories->setCurrentIndex (0);
+}
+
+void most_widget::on_button_most_backspace_clicked()
+{
+    emit code_changed (0);
+}
+
+void most_widget::on_button_most_confirm_return_clicked()
+{
+    auto is_selected = [] (const auto& combos)
+    {
+        for (auto & iter : combos)
+        {
+            if (iter->currentText () != "0") return true;
+        }
+        return false;
+    };
+
+    decltype (&cms_) group_arr [] = {&cms_, &gms_, &tus_};
+    unsigned i = 0;
+    decltype (&cms_) selected = nullptr;
+
+    for (auto iter : group_arr)
+    {
+        if (is_selected (*iter))
+        {
+            selected = iter;
+            i ++;
+        }
+    }
+
+    if (i != 1)
+    {
+        if (i > 1)
+        {
+            QMessageBox::information (this, "enter", "cannot fill up information of more than 1 row/发现多行分析结果，请重置不需要的分析结果");
+        }
+        else if (i < 1)
+        {
+            QMessageBox::information (this, "enter", "you need to fill up information of a row to continue/未发现分析结果，请先进行分析");
+        }
+
+        return;
+    }
+
+    assert (selected);
+    QStringList selected_list;
+    for (auto & iter : *selected)
+    {
+        QString single_value;
+        if (iter->objectName ().toUpper ().toStdString ().substr (10, 1) == "U")
+        {
+            single_value += ui->combo_tus_u_categories->currentText ();
+        }
+        else
+        {
+            single_value += iter->objectName ().toUpper ().toStdString ().substr (10, 1).data ();
+        }
+        single_value += iter->currentText ();
+
+        auto prefix_single_value = "most_" + single_value;
+
+        if (kv_tmu_.find (prefix_single_value.toStdString ()) == kv_tmu_.end ())
+        {
+            QMessageBox::information (this, "data", QString {"invalid data/输入的数据不合法 : "} + single_value);
+            return;
+        }
+
+        selected_list << prefix_single_value;
+    }
+
+    emit code_changed (selected_list);
+    emit return_pressed ();
+}
+
+void most_widget::init()
 {
     auto list_children = children ();
 
@@ -39,6 +139,18 @@ void most_widget::init_most()
             connect (obj, signal_index_change, this, &most_widget::on_most_dot_dot_dot_selected);
         }
     }
+
+    connect(ui->button_most_backspace , &QPushButton::clicked,
+            this, &most_widget::on_button_most_backspace_clicked);
+    connect(ui->button_most_confirm_return, &QPushButton::clicked,
+            this, &most_widget::on_button_most_confirm_return_clicked);
+    connect(ui->button_gms_reset, &QPushButton::clicked,
+            this, &most_widget::on_button_gms_reset_clicked);
+    connect(ui->button_cms_reset, &QPushButton::clicked,
+            this, &most_widget::on_button_cms_reset_clicked);
+    connect(ui->button_tus_reset, &QPushButton::clicked,
+            this, &most_widget::on_button_tus_reset_clicked);
+
 
     for (auto & iter : list_children)
     {

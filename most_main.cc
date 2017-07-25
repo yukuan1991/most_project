@@ -13,6 +13,7 @@ most_main::most_main(QWidget *parent) :
     ui->setupUi(this);
     ui->mdi->setViewMode (QMdiArea::TabbedView);
     init_conn();
+    set_button_enabled();
 }
 
 most_main::~most_main()
@@ -26,6 +27,15 @@ void most_main::init_conn()
             [this] (const QString & s) { file_operations(s); });
 
     connect(ui->widget_ribbon, &ribbon_most::help, this, &most_main::help_advice);
+
+    connect(ui->mdi, &QMdiArea::subWindowActivated, this, &most_main::set_button_enabled);
+
+}
+
+void most_main::set_button_enabled()
+{
+    const bool state = (active_window() != nullptr);
+    ui->widget_ribbon->set_enabled(state);
 }
 
 void most_main::file_operations(const QString &s)
@@ -55,7 +65,7 @@ void most_main::file_operations(const QString &s)
 void most_main::file_new()
 {
     auto w = create_window ("未命名");
-//    w->set_task_count ();
+    w->set_task_count ();
 }
 
 void most_main::help_advice()
@@ -77,11 +87,24 @@ not_null<most_analysis *> most_main::create_window(const QString &title)
 
     w->setWindowState (Qt::WindowMaximized);
 
-    //    connect(ui->widget_ribbon, &ribbon_most::add_row, ptr_most_win, &most_analysis::add_row);
+    connect(ui->widget_ribbon, &ribbon_most::add_row, ptr_most_win, &most_analysis::add_row);
     //    connect(ui->widget_ribbon, &ribbon_most::copy, ptr_most_win, &most_analysis::copy);
     //    connect(ui->widget_ribbon, &ribbon_most::cut, ptr_most_win, &most_analysis::cut);
     //    connect(ui->widget_ribbon, &ribbon_most::paste, ptr_most_win, &most_analysis::paste);
     //    connect(ui->widget_ribbon, &ribbon_most::del, ptr_most_win, &most_analysis::del);
 
     return most_win.release ();
+}
+
+most_analysis *most_main::active_window()
+{
+    if(QMdiSubWindow* active_subwindow = ui->mdi->activeSubWindow())
+    {
+        most_analysis* w = dynamic_cast<most_analysis*>(active_subwindow->widget());
+        return w;
+    }
+    else
+    {
+        return nullptr;
+    }
 }
