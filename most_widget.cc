@@ -5,6 +5,7 @@
 #include "arithmetic_resource.hpp"
 #include "most_selection_dlg.h"
 #include <QMessageBox>
+#include <QDate>
 
 std::map<std::string, int> most_widget::kv_tmu_;
 
@@ -21,6 +22,41 @@ most_widget::most_widget(QWidget *parent) :
 most_widget::~most_widget()
 {
     delete ui;
+}
+
+void most_widget::set_std_time_sum(QString &sum)
+{
+    ui->label_total->setText(sum);
+}
+
+void most_widget::set_measure_date(const QDate &date)
+{
+    ui->measure_date->setText (date.toString ("yyyy-MM-dd"));
+}
+
+QString most_widget::measure_date() const
+{
+    return ui->measure_date->text ();
+}
+
+void most_widget::set_measure_man(const QString &data)
+{
+    ui->measure_man->setText (data);
+}
+
+QString most_widget::measure_man() const
+{
+    return ui->measure_man->text();
+}
+
+void most_widget::set_task_man(const QString &data)
+{
+    ui->task_man->setText (data);
+}
+
+QString most_widget::task_man() const
+{
+    return ui->task_man->text();
 }
 
 void most_widget::on_button_gms_reset_clicked()

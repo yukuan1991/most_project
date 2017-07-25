@@ -24,6 +24,7 @@ public:
     explicit data_widget(QWidget *parent = 0);
     ~data_widget();
 
+    QString get_std_time_sum() const;
     void add_code (const QVariant& code);
     void set_unit (double unit);
     void next_code ();

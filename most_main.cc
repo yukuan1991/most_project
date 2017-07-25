@@ -3,6 +3,8 @@
 #include "interface_control/about_us_dlg.h"
 #include <memory>
 #include <QMdiSubWindow>
+#include <QDateEdit>
+#include <QInputDialog>
 
 using namespace std;
 
@@ -25,6 +27,10 @@ void most_main::init_conn()
 {
     connect(ui->widget_ribbon, &ribbon_most::file_menu_triggered,
             [this] (const QString & s) { file_operations(s); });
+
+    connect(ui->widget_ribbon, &ribbon_most::measure_date, this, &most_main::on_measure_date);
+    connect(ui->widget_ribbon, &ribbon_most::measure_man, this, &most_main::on_measure_man);
+    connect(ui->widget_ribbon, &ribbon_most::task_man, this, &most_main::on_task_man);
 
     connect(ui->widget_ribbon, &ribbon_most::help, this, &most_main::help_advice);
 
@@ -66,6 +72,75 @@ void most_main::file_new()
 {
     auto w = create_window ("未命名");
     w->set_task_count ();
+}
+
+void most_main::on_measure_date()
+{
+    auto w = active_window ();
+    if (w == nullptr)
+    {
+        return;
+    }
+
+    QDialog dlg (this);
+
+    auto edit = new QDateEdit (&dlg);
+    edit->setCalendarPopup (true);
+    edit->setDate (QDate::currentDate ());
+
+    auto ok_button = new QPushButton (&dlg);
+    ok_button->setText ("确定");
+
+    auto layout = new QHBoxLayout;
+
+    layout->addWidget (edit);
+    layout->addWidget (ok_button);
+    dlg.setLayout (layout);
+
+    connect (ok_button, &QPushButton::clicked, &dlg, &QDialog::accept);
+    const auto res = dlg.exec ();
+
+    if (res != QDialog::Accepted)
+    {
+        return;
+    }
+
+    w->set_measure_date (edit->date ());
+}
+
+void most_main::on_measure_man()
+{
+    auto w = active_window ();
+    if (w == nullptr)
+    {
+        return;
+    }
+
+    bool is_ok;
+    const auto old_data = w->measure_man ();
+    const auto data = QInputDialog::getText (this, "测量人", "测量人", QLineEdit::Normal, old_data, &is_ok);
+    if (is_ok)
+    {
+        w->set_measure_man (data);
+    }
+}
+
+void most_main::on_task_man()
+{
+    auto w = active_window ();
+    if (w == nullptr)
+    {
+        return;
+    }
+
+    bool is_ok;
+    const auto old_data = w->task_man ();
+    const auto data = QInputDialog::getText (this, "作业员", "作业员", QLineEdit::Normal, old_data, &is_ok);
+
+    if (is_ok)
+    {
+        w->set_task_man (data);
+    }
 }
 
 void most_main::help_advice()
