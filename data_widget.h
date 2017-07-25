@@ -29,9 +29,16 @@ public:
     void set_unit (double unit);
     void next_code ();
 
+    json save_result();
+    bool load_result(const json& result_array);
+
     void set_row (int num);
-//    bool task_content_check ();
+    bool task_content_check ();
     void clear();
+    void on_cut ();
+    void on_copy ();
+    void on_paste ();
+    void on_del ();
 private:
     void set_view ();
 private:

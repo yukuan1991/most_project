@@ -5,6 +5,12 @@
 #include <QMdiSubWindow>
 #include <QDateEdit>
 #include <QInputDialog>
+#include <base/io/file/file.hpp>
+#include <base/utils/charset.hpp>
+#include <QFileDialog>
+#include <QMessageBox>
+
+#include <QDebug>
 
 using namespace std;
 
@@ -50,18 +56,18 @@ void most_main::file_operations(const QString &s)
     {
         file_new();
     }
-//    else if(s == "打开")
-//    {
-//        file_open();
-//    }
-//    else if(s == "保存")
-//    {
-//        file_save();
-//    }
-//    else if(s == "另存为")
-//    {
-//        file_save_as();
-//    }
+    else if(s == "打开")
+    {
+        file_open();
+    }
+    else if(s == "保存")
+    {
+        file_save();
+    }
+    else if(s == "另存为")
+    {
+        file_save_as();
+    }
     else if(s == "退出")
     {
         close();
@@ -72,6 +78,94 @@ void most_main::file_new()
 {
     auto w = create_window ("未命名");
     w->set_task_count ();
+}
+
+void most_main::file_open()
+{
+    const auto path = QFileDialog::getOpenFileName (this, "文件打开", ".", tr ("Most Analysis File (*.mostaf)"));
+    if (path.isEmpty ())
+    {
+        return;
+    }
+
+    auto res = file::read_all (::utf_to_sys (path.toStdString ()).data ());
+    if (not res)
+    {
+        QMessageBox::information (this, "打开", "文件无法打开,读取失败");
+        return;
+    }
+    try
+    {
+        const auto data = json::parse (res.value ());
+        auto w = create_window (path);
+        w->load (data);
+    }
+    catch (std::exception &)
+    {
+        QMessageBox::information (this, "打开", "文件格式错误 无法打开");
+        return;
+    }
+}
+
+void most_main::file_save()
+{
+    const auto active = ui->mdi->currentSubWindow ();
+    if (active == nullptr)
+    {
+        return;
+    }
+    auto w = dynamic_cast<most_analysis *> (active->widget ());
+
+    if (w == nullptr)
+    {
+        return;
+    }
+
+    if (!w->task_content_check ())
+    {
+        return;
+    }
+
+    if (const auto title_path = active->windowTitle ();
+            title_path == "未命名")
+    {
+        const auto path = QFileDialog::getSaveFileName(this, "文件保存", ".", tr ("Most Analysis File (*.mostaf)"));
+        const auto data = w->dump ();
+        qDebug() << data.dump(4).data();
+
+        active->setWindowTitle(path);
+        file::write_buffer (::utf_to_sys (path.toStdString ()).data (), data.dump (4));
+    }
+    else
+    {
+        const auto data = w->dump ();
+        file::write_buffer (::utf_to_sys (title_path.toStdString ()).data (), data.dump (4));
+    }
+}
+
+void most_main::file_save_as()
+{
+    const auto active = ui->mdi->currentSubWindow ();
+    if (active == nullptr)
+    {
+        return;
+    }
+
+    auto w = active_window ();
+
+    if (!w->task_content_check ())
+    {
+        return;
+    }
+
+    if (w != nullptr)
+    {
+        const auto path = QFileDialog::getSaveFileName(this, "文件保存", ".", tr ("Most Analysis File (*.mostaf)"));
+        const auto data = w->dump ();
+
+        active->setWindowTitle(path);
+        file::write_buffer (::utf_to_sys (path.toStdString ()).data (), data.dump (4));
+    }
 }
 
 void most_main::on_measure_date()
@@ -163,10 +257,10 @@ not_null<most_analysis *> most_main::create_window(const QString &title)
     w->setWindowState (Qt::WindowMaximized);
 
     connect(ui->widget_ribbon, &ribbon_most::add_row, ptr_most_win, &most_analysis::add_row);
-    //    connect(ui->widget_ribbon, &ribbon_most::copy, ptr_most_win, &most_analysis::copy);
-    //    connect(ui->widget_ribbon, &ribbon_most::cut, ptr_most_win, &most_analysis::cut);
-    //    connect(ui->widget_ribbon, &ribbon_most::paste, ptr_most_win, &most_analysis::paste);
-    //    connect(ui->widget_ribbon, &ribbon_most::del, ptr_most_win, &most_analysis::del);
+        connect(ui->widget_ribbon, &ribbon_most::copy, ptr_most_win, &most_analysis::copy);
+        connect(ui->widget_ribbon, &ribbon_most::cut, ptr_most_win, &most_analysis::cut);
+        connect(ui->widget_ribbon, &ribbon_most::paste, ptr_most_win, &most_analysis::paste);
+        connect(ui->widget_ribbon, &ribbon_most::del, ptr_most_win, &most_analysis::del);
 
     return most_win.release ();
 }

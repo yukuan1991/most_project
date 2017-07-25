@@ -24,7 +24,9 @@ private:
 private:
     void file_operations(const QString& s);
     void file_new();
-
+    void file_open();
+    void file_save();
+    void file_save_as();
 private:
     void on_measure_date ();
     void on_measure_man ();

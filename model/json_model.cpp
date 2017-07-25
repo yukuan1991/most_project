@@ -359,7 +359,7 @@ bool json_model::paste_data(const QModelIndex &index, const QVariant &value)
             for(auto it : list)
             {
                 auto str = it.toStdString();
-                const auto prefix_code = "mtm_" + str;
+                const auto prefix_code = "most_" + str;
 
                 auto found = kv_tmu_.find (prefix_code);
 
