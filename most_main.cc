@@ -36,6 +36,10 @@ void most_main::init_conn()
     connect(ui->widget_ribbon, &ribbon_most::file_menu_triggered,
             [this] (const QString & s) { file_operations(s); });
 
+    connect(ui->widget_ribbon, &ribbon_most::copy, this, &most_main::copy);
+    connect(ui->widget_ribbon, &ribbon_most::cut, this, &most_main::cut);
+    connect(ui->widget_ribbon, &ribbon_most::paste, this, &most_main::paste);
+    connect(ui->widget_ribbon, &ribbon_most::del, this, &most_main::del);
     connect(ui->widget_ribbon, &ribbon_most::add_row, this, &most_main::add_row);
     connect(ui->widget_ribbon, &ribbon_most::measure_date, this, &most_main::on_measure_date);
     connect(ui->widget_ribbon, &ribbon_most::measure_man, this, &most_main::on_measure_man);
@@ -176,6 +180,46 @@ void most_main::file_save_as()
     }
 }
 
+void most_main::copy()
+{
+    auto w = active_window();
+    if(w == nullptr)
+    {
+        return;
+    }
+    w->copy();
+}
+
+void most_main::cut()
+{
+    auto w = active_window();
+    if(w == nullptr)
+    {
+        return;
+    }
+    w->cut();
+}
+
+void most_main::paste()
+{
+    auto w = active_window();
+    if(w == nullptr)
+    {
+        return;
+    }
+    w->paste();
+}
+
+void most_main::del()
+{
+    auto w = active_window();
+    if(w == nullptr)
+    {
+        return;
+    }
+    w->del();
+}
+
 void most_main::add_row()
 {
     auto w = active_window();
@@ -273,11 +317,6 @@ not_null<most_analysis *> most_main::create_window(const QString &title)
     w->setWindowTitle (title);
 
     w->setWindowState (Qt::WindowMaximized);
-
-    connect(ui->widget_ribbon, &ribbon_most::copy, ptr_most_win, &most_analysis::copy);
-    connect(ui->widget_ribbon, &ribbon_most::cut, ptr_most_win, &most_analysis::cut);
-    connect(ui->widget_ribbon, &ribbon_most::paste, ptr_most_win, &most_analysis::paste);
-    connect(ui->widget_ribbon, &ribbon_most::del, ptr_most_win, &most_analysis::del);
 
     return most_win.release ();
 }
