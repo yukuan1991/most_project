@@ -24,6 +24,7 @@ most_main::most_main(QWidget *parent) :
     setMinimumSize(QSize(1000, 800));
     init_conn();
     set_button_enabled();
+    setWindowTitle("MOST");
 }
 
 most_main::~most_main()

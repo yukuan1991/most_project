@@ -10,7 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG -= c++11
 QMAKE_CXXFLAGS += -std=c++1z
 
-TARGET = most_project
+TARGET = most
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -42,7 +42,8 @@ SOURCES += main.cc\
     Qt-Utils/encryption.cpp \
     Qt-Utils/tinyxml2.cpp \
     view/table_view.cpp \
-    most_selection_dlg.cpp
+    most_selection_dlg.cpp \
+    verification/verification.cpp
 
 HEADERS  += most_main.h \
     interface_control/about_us_dlg.h \
@@ -65,7 +66,8 @@ HEADERS  += most_main.h \
     Qt-Utils/tinyxml2.h \
     view/table_view.h \
     arithmetic_resource.hpp \
-    most_selection_dlg.h
+    most_selection_dlg.h \
+    verification/verification.h
 
 FORMS    += most_main.ui \
     most_widget.ui \
@@ -73,8 +75,11 @@ FORMS    += most_main.ui \
     most_analysis.ui \
     most_selection_dlg.ui
 
-LIBS += -lboost_locale
-LIBS += -liconv
 LIBS += -lboost_filesystem
 LIBS += -lboost_system
 LIBS += -lboost_regex
+LIBS += -lboost_thread
+LIBS += -lboost_locale
+LIBS += -liconv
+LIBS += -lwininet
+LIBS += -lws2_32
